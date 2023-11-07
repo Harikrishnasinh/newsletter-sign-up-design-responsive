@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <!-- google  fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,400;0,700;1,700&display=swap"
+    rel="stylesheet">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    * {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .main_div {
+      /* background-color: aquamarine; */
+      /* height: 100vh;
+      width: 100vw; */
+      display: flex-col;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      /* translate: 700px; */
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    .upper {
+      background-color: white;
+      background-image: url("assets/images/illustration-sign-up-mobile.svg");
+      background-position: cover;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 42.5vh;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      /* margin-top: 30vh; */
+    }
+
+    .lower {
+      /* background-color: blueviolet; */
+      height: 60vh;
+      margin: 20px;
+    }
+
+    .stay_updated_heading {
+      font-weight: bold;
+      font-size: xx-large;
+      color: hsl(234, 29%, 20%);
+      padding-top: 5px;
+    }
+
+    .lower_inner_ele {
+      /* background-color: red; */
+      height: auto;
+      display: flex-col;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lower_inner_head {
+      color: hsl(235, 18%, 26%);
+      font-size: medium;
+      font-weight: 400;
+      padding-top: 20px;
+      line-height: 20px;
+    }
+
+    .lower_inner_list {
+      padding-top: 20px;
+    }
+
+    .lower_inner_list_flex {
+      display: flex;
+      padding-bottom: 20px;
+      color: hsl(235, 18%, 26%);
+      font-size: medium;
+      font-weight: 400;
+      gap: 1rem;
+      line-height: 20px;
+    }
+
+    .email_check_div {
+      padding-top: 15px;
+      font-weight: 700;
+      color: hsl(234, 29%, 20%);
+      font-size: medium;
+      /* width: auto; */
+      /* background-color: black; */
+      /* font-weight: 400; */
+    }
+
+    .email_check_input_div {
+      /* background-color: red; */
+    }
+
+    .email_check_input {
+      /* background-color: aqua; */
+      width: 100%;
+      margin-top: 10px;
+      padding: 15px;
+      border: 1px solid hsl(231, 7%, 60%);
+      outline-color: hsl(234, 29%, 20%);
+      border-radius: 5px;
+    }
+
+    .email_submit_button {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: hsl(234, 29%, 20%);
+      color: white;
+      font-weight: 700;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .email_submit_button:focus {
+      background-color: hsl(4, 100%, 67%);
+      outline: none;
+    }
+
+    .confirm_page {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .inner_div_confirm_page {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: left;
+      justify-content: space-between;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: xx-large;
+    }
+
+    .confirm_text {
+      font-size: medium;
+      font-weight: 400;
+      line-height: 25px;
+    }
+
+    #email_id {
+      font-weight: 700;
+    }
+
+    .dismiss_btn button {
+      padding: 15px;
+      background-color: hsl(234, 29%, 20%);
+      width: 100%;
+      color: whitesmoke;
+      font-weight: 700;
+      margin-top: 50px;
+    }
+    @media screen and (min-width: 768px) {
+      .main_div{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap:0;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        /* border: 1px solid black; */
+        /* background-color: hsl(234, 29%, 20%); */
+        /* padding:10rem */
+      }
+      .upper{
+        background-image: url(assets/images/illustration-sign-up-desktop.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        width: 26%;
+        height: 70vh;
+        border-radius: 10px;
+        padding: 20px;
+        /* background-color: white; */
+
+      }
+      .lower_inner_ele{
+        line-height: 50px;
+        /* background-color: whitesmoke; */
+        /* color: whitesmoke; */
+        margin-top: -34px;
+        padding: 0;
+        padding:30px 10px;
+        /* padding: 10px; */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- - Dark Slate Grey: hsl(234, 29%, 20%)
+- Charcoal Grey: hsl(235, 18%, 26%)
+- Grey: hsl(231, 7%, 60%)
+- White: hsl(0, 0%, 100%) -->
+
+  <!-- main center div -->
+  <div class="main_div">
+    <div class="upper">
+      <!-- image section -->
+    </div>
+    <div class="lower">
+      <div class="lower_inner_ele">
+        <div>
+          <p class="stay_updated_heading">
+            Stay updated!
+          </p>
+        </div>
+        <div class="lower_inner_head">
+          <p class="">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+        </div>
+        <div class="lower_inner_list">
+          <div class="lower_inner_list_flex">
+            <div>
+              <img src="./assets/images/icon-list.svg" alt="image">
+            </div>
+            <div>
+              <p>
+                Product discovery and building what matters
+              </p>
+            </div>
+          </div>
+          <div class="lower_inner_list_flex">
+            <div>
+              <img src="./assets/images/icon-list.svg" alt="image">
+            </div>
+            <div>
+              <p>
+                Measuring to ensure updates are a success
+              </p>
+            </div>
+          </div>
+          <div class="lower_inner_list_flex">
+            <div>
+              <img src="./assets/images/icon-list.svg" alt="image">
+            </div>
+            <div>
+              <p>
+                And much more!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- email check -->
+        <div class="email_check_div">
+          <p>Email Address</p>
+          <div class="email_check_input_div">
+            <input type="email" name="email" id="email" class="email_check_input" 
+          placeholder="email@company.com">
+          </div>
+        </div>
+        <div>
+          <button type="submit" id="btn_submit" class="email_submit_button" onclick="email_btn()">
+            Subscribe to monthly newsletter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- confirmation page -->
+  <div class="confirm_page">
+    <div class="inner_div_confirm_page">
+      <div>
+        <img src="assets/images/icon-success.svg" alt="image">
+      </div>
+      <div>
+        <p>
+          Thanks for subscribing!
+        </p>
+      </div>
+      <div>
+        <p class="confirm_text">
+          A confirmation email has been sent to <span id="email_id">
+            ash@loremcompany.com.
+          </span>
+          Please open it and click the button inside to confirm your subscription
+        </p>
+      </div>
+      <div class="dismiss_btn">
+        <button onclick="dismiss()">
+          Dismiss message
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    confirm_page = document.querySelector(".confirm_page");
+    email_id = document.getElementById("email_id");
+    email = document.getElementById("email")
+    console.log(confirm_page)
+    confirm_page.style.translate = "-700px";
+    confirm_page.style.display = "none"
+    btn_submit = document.getElementById("btn_submit");
+    upper = document.querySelector(".main_div");
+
+    function email_btn() {
+      email_id.innerText = email.value;
+      upper.style.translate = "700px";
+      upper.style.transition = ".8s";
+      upper.style.display="none"
+      confirm_page.style.display = "flex";
+      confirm_page.style.translate = "0";
+      confirm_page.style.transition = ".1s";
+    }
+
+    function dismiss(){
+      confirm_page.style.translate = "700px";
+      email.value = null;
+      confirm_page.style.transition = ".8s";
+      confirm_page.style.display="none"
+      upper.style.display = "flex";
+      upper.style.translate = "0";
+      upper.style.transition = ".1s";
+    }
+
+  </script>
+
+  <!-- Sign-up form start -->
+
+  <!--
+
+  Join 60,000+ product managers receiving monthly updates on:
+
+  Product discovery and building what matters
+  Measuring to ensure updates are a success
+  And much more!
+
+  Email address
+  email@company.com
+
+  Subscribe to monthly newsletter -->
+
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+
+  <!-- Thanks for subscribing!
+
+  A confirmation email has been sent to ash@loremcompany.com. 
+  Please open it and click the button inside to confirm your subscription.
+
+  Dismiss message -->
+
+  <!-- Success message end -->
+
+
+</body>
+
+</html>
